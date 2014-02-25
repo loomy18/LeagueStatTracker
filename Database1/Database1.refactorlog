@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Operations Version="1.0" xmlns="http://schemas.microsoft.com/sqlserver/dac/Serialization/2012/02">
+  <Operation Name="Rename Refactor" Key="932956e9-68fe-4022-84c3-9b152aa88317" ChangeDateTime="02/25/2014 20:14:21">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[Level]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="level" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e43a64a9-6b59-4e99-83f0-13295f521cb4" ChangeDateTime="02/25/2014 20:14:23">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[GoldEarned]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="goldEarned" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6578c8d6-783c-4483-91fd-aed5003cc669" ChangeDateTime="02/25/2014 20:14:26">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[NumDeaths]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="numDeaths" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="e09ac991-f74b-442e-a4dd-628756a4519c" ChangeDateTime="02/25/2014 20:14:28">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[MinionsKilled]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="minionsKilled" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2669048f-9d57-4005-81ae-583a8880b65a" ChangeDateTime="02/25/2014 20:14:31">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[ChampionsKilled]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="championsKilled" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="63450f21-164b-487e-b997-0c961a7f07bd" ChangeDateTime="02/25/2014 20:14:35">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[GoldSpent]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="goldSpent" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="6a8e10c6-3598-489b-8b8c-b0a2d6ad6320" ChangeDateTime="02/25/2014 20:14:38">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[TotalDamageDealt]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="totalDamageDealt" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="9493764e-1259-4666-a0cf-e3c83cc1f9e6" ChangeDateTime="02/25/2014 20:17:21">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[item0]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="item1" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="0f74410a-4f81-4908-a311-c7006340e718" ChangeDateTime="02/25/2014 20:21:20">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="gameId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="48301b0f-adf2-4412-9ed9-b1f8c1ab43b4" ChangeDateTime="02/25/2014 20:25:16">
+    <Property Name="ElementName" Value="[dbo].[GameTable].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="gameId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="1701651b-b1c4-43ee-a59a-5f03dfe638d9" ChangeDateTime="02/25/2014 20:26:44">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[gameId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="statsId" />
+  </Operation>
+</Operations>
