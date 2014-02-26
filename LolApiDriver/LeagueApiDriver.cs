@@ -8,17 +8,17 @@ using Newtonsoft.Json;
 
 namespace LolApiDriver
 {
-    public class Driver
+    public class LeagueApiDriver
     {
         RestClient client = new RestClient("https://prod.api.pvp.net");
         string summonerName {get; set;}
         string serverName {get; set;}
-        LeagueUser user {get; set;}
+        public LeagueUser user {get; set;}
 
-        public Driver(string summonerName, string serverName){
+        public LeagueApiDriver(string summonerName, string serverName){
             this.summonerName = summonerName;
             this.serverName = serverName;
-            this.user = getLeagueUser(getLeagueUserString());
+            this.user = getLeagueUser();
         }
         
         public string getRecentStatsString()
@@ -27,15 +27,23 @@ namespace LolApiDriver
             RestResponse recentResponse = (RestResponse)client.Execute(recentRequest);
             return recentResponse.Content;
         }
+        public RecentResponse getRecentResponse()
+        {
+            return JsonConvert.DeserializeObject<RecentResponse>(getRecentStatsString());
+        }
        
 
-        public string getRankStats()
+        public string getRankStatsString()
         {
             string rankStatRequestString = createStatString(user.id, "ranked");
             RestRequest rankStatRequest = new RestRequest(rankStatRequestString);
             RestResponse rankStatResponse = (RestResponse)client.Execute(rankStatRequest);
             return rankStatResponse.Content;
         }
+       // public RankStatResponse getRankStatResponse()
+        //{
+         //   return JsonConvert.DeserializeObject<RankStatResponse>(getRankStatsString());
+       // }
 
 
         public string getLeagueUserString()
@@ -44,10 +52,9 @@ namespace LolApiDriver
             RestResponse leagueUserResponse = (RestResponse)client.Execute(request);
             return leagueUserResponse.Content;
         }
-
-        public LeagueUser getLeagueUser(string leagueUserString)
+        public LeagueUser getLeagueUser()
         {
-             var userDictionary = JsonConvert.DeserializeObject<Dictionary<string, LeagueUser>>(leagueUserString);
+             var userDictionary = JsonConvert.DeserializeObject<Dictionary<string, LeagueUser>>(getLeagueUserString());
              return userDictionary[this.summonerName];
         }
 

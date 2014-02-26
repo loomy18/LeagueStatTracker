@@ -5,7 +5,6 @@ using System.Web;
 using Newtonsoft.Json;
 using RestSharp;
 using System.Linq;
-using System.Web.Script.Serialization;
 
 namespace LolApiDriver
 {

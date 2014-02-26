@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Driver.cs" />
+    <Compile Include="LeagueApiDriver.cs" />
     <Compile Include="LeagueUser.cs" />
+    <Compile Include="LolDataDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RankStatResponse.cs" />
     <Compile Include="RecentResponse.cs" />
   </ItemGroup>
   <ItemGroup>
