@@ -25,5 +25,9 @@ namespace LeagueStatTracker
         {
             LolDataDriver.insertData(SummonerField.Text, ServerSelect.SelectedValue);
         }
+        protected void createUser(object sender, EventArgs e)
+        {
+
+        }
     }
 }

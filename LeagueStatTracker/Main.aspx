@@ -5,6 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        .auto-style1 {
+            width: 100%;
+        }
+        </style>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -20,16 +25,13 @@
             <asp:ListItem Value="las" Text="LAS"/>
         </asp:DropDownList>
     </div>
+        <table class="auto-style1">
+            <tr>
+                <td>Summoner Name</td>
+            </tr>
+        </table>
     <div>
         <asp:TextBox ID="ResultsField" runat="server" Height="117px" Width="347px"></asp:TextBox>
-        <asp:Table ID="Table1" runat="server">
-            <asp:TableHeaderRow>
-                <asp:TableHeaderCell ID="BasicTableHeader" />
-            </asp:TableHeaderRow> 
-            <asp:TableRow>
-                <asp:TableCell ID="Level"></asp:TableCell>
-            </asp:TableRow>
-        </asp:Table>
     </div>
     </form>
 </body>
