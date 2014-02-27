@@ -1,0 +1,84 @@
+﻿@model LeagueStatTest.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Log in";
+}
+
+    <div>
+        <script src="http://code.jquery.com/jquery-latest.js " type="text/javascript"></script>
+        <script>
+            $(document).ready(function () {
+                $("#LoginButton").click(function () {
+                    $("#LoginStatus").html("Logging in...");
+                    var data = {
+                        "userid": $("#Username").val(),
+                        "password": $("#Username").val(),
+                        "rememberme": $("#RememberMe").prop("checked")
+                    };
+                    alert($("#Username").val());
+                    alert($("#Password").val());
+                    $.ajax({
+                        url: "/Account/ValidateUser",
+                        type: "POST",
+                        data: JSON.stringify(data),
+                        dataType: "json",
+                        contentType: "application/json",
+                        success: function (status) {
+                            $("#LoginStatus").html(status.Message);
+                            if (status.Success) {
+                                window.location.href = status.TargetURL;
+                            }
+                        },
+                        error: function () {
+                            $("#LoginStatus").html("Error while authenticating user credentials!");
+                        }
+                    });
+                });
+            });
+        </script>
+
+        <asp:Login ID="LoginControl" runat="server">
+                <table>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
+                                    </td>
+                                    <td>
+                                        <input type="text" ID="Username"/>
+                                        <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="LoginButton">*</asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                                    </td>
+                                    <td>
+                                        <input type="text" id="Password" />
+                                        <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="LoginButton">*</asp:RequiredFieldValidator>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">
+                                        <asp:CheckBox ID="RememberMe" runat="server" Text="Remember me next time." />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <input type="button" id="LoginButton" />
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+        </asp:Login>
+        <div id="LoginStatus" />
+    </div>
+<h2>@ViewBag.Title.</h2>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

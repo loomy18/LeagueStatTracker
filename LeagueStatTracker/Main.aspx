@@ -28,7 +28,7 @@
         <table class="auto-style1">
             <tr>
                 <td>Summoner Name</td>
-            </tr>
+                
         </table>
     <div>
         <asp:TextBox ID="ResultsField" runat="server" Height="117px" Width="347px"></asp:TextBox>

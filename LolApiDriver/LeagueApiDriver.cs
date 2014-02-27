@@ -20,6 +20,7 @@ namespace LolApiDriver
             this.serverName = serverName;
             this.user = getLeagueUser();
         }
+
         
         public string getRecentStatsString()
         {
@@ -45,17 +46,27 @@ namespace LolApiDriver
          //   return JsonConvert.DeserializeObject<RankStatResponse>(getRankStatsString());
        // }
 
+        public RestResponse getUserResponse()
+        {
+            RestRequest request = new RestRequest(createUserRequestString());
+            return (RestResponse)client.Execute(request);
+        }
 
         public string getLeagueUserString()
         {
-            RestRequest request = new RestRequest(createUserRequestString());
-            RestResponse leagueUserResponse = (RestResponse)client.Execute(request);
-            return leagueUserResponse.Content;
+            return getUserResponse().Content;
         }
         public LeagueUser getLeagueUser()
         {
-             var userDictionary = JsonConvert.DeserializeObject<Dictionary<string, LeagueUser>>(getLeagueUserString());
-             return userDictionary[this.summonerName];
+            try
+            {
+                var userDictionary = JsonConvert.DeserializeObject<Dictionary<string, LeagueUser>>(getLeagueUserString());
+                return userDictionary[this.summonerName];
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
         }
 
 
