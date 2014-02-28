@@ -71,7 +71,7 @@ namespace Test2.Controllers
                     summonerNames[0] = registerInfo.SummonerName;
                     serverNames[0] = "na";
                     insertSummonerData(summonerNames, serverNames, newUser.ProviderUserKey.ToString());
-                    return Json("success");
+                    return Json(status);
                 default:
                     return Json(status);
             }
