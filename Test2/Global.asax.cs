@@ -14,10 +14,17 @@ namespace Test2
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            MembershipCreateStatus status1;
-            Membership.CreateUser("loomy18",
-            "aLergery.10859", "test2@somewebsite.com",
-            "question", "answer", true, out status1);
+        }
+        public static void RegisterRoutes(RouteCollection routes)
+        {
+
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.MapRoute(
+                "Default", // Route name
+                "{controller}/{action}/{id}", // URL with parameters
+                new { controller = "Home", action = "LogOn", id = UrlParameter.Optional }
+            );
+
         }
     }
 }

@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="StatDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="GameTable">
+          <Key>
+            <PropertyRef Name="gameId" />
+          </Key>
+          <Property Name="gameId" Type="int" Nullable="false" />
+          <Property Name="invalid" Type="bit" />
+          <Property Name="gameMode" Type="varchar" MaxLength="50" />
+          <Property Name="gameType" Type="varchar" MaxLength="50" />
+          <Property Name="subType" Type="varchar" MaxLength="50" />
+          <Property Name="mapId" Type="int" />
+          <Property Name="teamId" Type="int" />
+          <Property Name="championId" Type="int" />
+          <Property Name="spell1" Type="int" />
+          <Property Name="spell2" Type="int" />
+          <Property Name="levelVal" Type="int" />
+          <Property Name="createDate" Type="bigint" />
+          <Property Name="summonerId" Type="int" Nullable="false" />
+          <Property Name="level" Type="int" />
+          <Property Name="goldEarned" Type="int" />
+          <Property Name="numDeaths" Type="int" />
+          <Property Name="minionsKilled" Type="int" />
+          <Property Name="championsKilled" Type="int" />
+          <Property Name="goldSpent" Type="int" />
+          <Property Name="totalDamageDealt" Type="int" />
+          <Property Name="totalDamageTaken" Type="int" />
+          <Property Name="doubleKills" Type="int" />
+          <Property Name="tripleKills" Type="int" />
+          <Property Name="killingSprees" Type="int" />
+          <Property Name="largestKillingSpree" Type="int" />
+          <Property Name="team" Type="int" />
+          <Property Name="win" Type="bit" />
+          <Property Name="neutralMinionsKilled" Type="int" />
+          <Property Name="largestMultiKill" Type="int" />
+          <Property Name="physicalDamageDealtPlayer" Type="int" />
+          <Property Name="magicDamageDealtPlayer" Type="int" />
+          <Property Name="physicalDamageTaken" Type="int" />
+          <Property Name="magicDamageTaken" Type="int" />
+          <Property Name="timePlayed" Type="int" />
+          <Property Name="totalHeal" Type="int" />
+          <Property Name="totalUnitsHealed" Type="int" />
+          <Property Name="assists" Type="int" />
+          <Property Name="item0" Type="int" />
+          <Property Name="item1" Type="int" />
+          <Property Name="item2" Type="int" />
+          <Property Name="item3" Type="int" />
+          <Property Name="item4" Type="int" />
+          <Property Name="item5" Type="int" />
+          <Property Name="item6" Type="int" />
+          <Property Name="sightWardsBought" Type="int" />
+          <Property Name="physicalDamageDealtToChampions" Type="int" />
+          <Property Name="totalDamageDealtToChampions" Type="int" />
+          <Property Name="trueDamageDealtPlayer" Type="int" />
+          <Property Name="trueDamageDealtToChampions" Type="int" />
+          <Property Name="trueDamageTaken" Type="int" />
+          <Property Name="wardPlaced" Type="int" />
+          <Property Name="neutralMinionsKilledEnemyJungle" Type="int" />
+          <Property Name="neutralMinionsKilledYourJungle" Type="int" />
+          <Property Name="totalTimeCrowdControlDealt" Type="int" />
+          <Property Name="barracksKilled" Type="int" />
+          <Property Name="turretsKilled" Type="int" />
+          <Property Name="largestCriticalStrike" Type="int" />
+          <Property Name="magicDamageDealtToChampions" Type="int" />
+          <Property Name="visionWardsBought" Type="int" />
+        </EntityType>
+        <EntityContainer Name="StatDataModelStoreContainer">
+          <EntitySet Name="GameTable" EntityType="Self.GameTable" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StatDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="GameTable">
+          <Key>
+            <PropertyRef Name="gameId" />
+          </Key>
+          <Property Name="gameId" Type="Int32" Nullable="false" />
+          <Property Name="invalid" Type="Boolean" />
+          <Property Name="gameMode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="gameType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="subType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mapId" Type="Int32" />
+          <Property Name="teamId" Type="Int32" />
+          <Property Name="championId" Type="Int32" />
+          <Property Name="spell1" Type="Int32" />
+          <Property Name="spell2" Type="Int32" />
+          <Property Name="levelVal" Type="Int32" />
+          <Property Name="createDate" Type="Int64" />
+          <Property Name="summonerId" Type="Int32" Nullable="false" />
+          <Property Name="level" Type="Int32" />
+          <Property Name="goldEarned" Type="Int32" />
+          <Property Name="numDeaths" Type="Int32" />
+          <Property Name="minionsKilled" Type="Int32" />
+          <Property Name="championsKilled" Type="Int32" />
+          <Property Name="goldSpent" Type="Int32" />
+          <Property Name="totalDamageDealt" Type="Int32" />
+          <Property Name="totalDamageTaken" Type="Int32" />
+          <Property Name="doubleKills" Type="Int32" />
+          <Property Name="tripleKills" Type="Int32" />
+          <Property Name="killingSprees" Type="Int32" />
+          <Property Name="largestKillingSpree" Type="Int32" />
+          <Property Name="team" Type="Int32" />
+          <Property Name="win" Type="Boolean" />
+          <Property Name="neutralMinionsKilled" Type="Int32" />
+          <Property Name="largestMultiKill" Type="Int32" />
+          <Property Name="physicalDamageDealtPlayer" Type="Int32" />
+          <Property Name="magicDamageDealtPlayer" Type="Int32" />
+          <Property Name="physicalDamageTaken" Type="Int32" />
+          <Property Name="magicDamageTaken" Type="Int32" />
+          <Property Name="timePlayed" Type="Int32" />
+          <Property Name="totalHeal" Type="Int32" />
+          <Property Name="totalUnitsHealed" Type="Int32" />
+          <Property Name="assists" Type="Int32" />
+          <Property Name="item0" Type="Int32" />
+          <Property Name="item1" Type="Int32" />
+          <Property Name="item2" Type="Int32" />
+          <Property Name="item3" Type="Int32" />
+          <Property Name="item4" Type="Int32" />
+          <Property Name="item5" Type="Int32" />
+          <Property Name="item6" Type="Int32" />
+          <Property Name="sightWardsBought" Type="Int32" />
+          <Property Name="physicalDamageDealtToChampions" Type="Int32" />
+          <Property Name="totalDamageDealtToChampions" Type="Int32" />
+          <Property Name="trueDamageDealtPlayer" Type="Int32" />
+          <Property Name="trueDamageDealtToChampions" Type="Int32" />
+          <Property Name="trueDamageTaken" Type="Int32" />
+          <Property Name="wardPlaced" Type="Int32" />
+          <Property Name="neutralMinionsKilledEnemyJungle" Type="Int32" />
+          <Property Name="neutralMinionsKilledYourJungle" Type="Int32" />
+          <Property Name="totalTimeCrowdControlDealt" Type="Int32" />
+          <Property Name="barracksKilled" Type="Int32" />
+          <Property Name="turretsKilled" Type="Int32" />
+          <Property Name="largestCriticalStrike" Type="Int32" />
+          <Property Name="magicDamageDealtToChampions" Type="Int32" />
+          <Property Name="visionWardsBought" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="StatDataEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="GameTables" EntityType="Self.GameTable" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StatDataModelStoreContainer" CdmEntityContainer="StatDataEntities1">
+          <EntitySetMapping Name="GameTables">
+            <EntityTypeMapping TypeName="StatDataModel.GameTable">
+              <MappingFragment StoreEntitySet="GameTable">
+                <ScalarProperty Name="gameId" ColumnName="gameId" />
+                <ScalarProperty Name="invalid" ColumnName="invalid" />
+                <ScalarProperty Name="gameMode" ColumnName="gameMode" />
+                <ScalarProperty Name="gameType" ColumnName="gameType" />
+                <ScalarProperty Name="subType" ColumnName="subType" />
+                <ScalarProperty Name="mapId" ColumnName="mapId" />
+                <ScalarProperty Name="teamId" ColumnName="teamId" />
+                <ScalarProperty Name="championId" ColumnName="championId" />
+                <ScalarProperty Name="spell1" ColumnName="spell1" />
+                <ScalarProperty Name="spell2" ColumnName="spell2" />
+                <ScalarProperty Name="levelVal" ColumnName="levelVal" />
+                <ScalarProperty Name="createDate" ColumnName="createDate" />
+                <ScalarProperty Name="summonerId" ColumnName="summonerId" />
+                <ScalarProperty Name="level" ColumnName="level" />
+                <ScalarProperty Name="goldEarned" ColumnName="goldEarned" />
+                <ScalarProperty Name="numDeaths" ColumnName="numDeaths" />
+                <ScalarProperty Name="minionsKilled" ColumnName="minionsKilled" />
+                <ScalarProperty Name="championsKilled" ColumnName="championsKilled" />
+                <ScalarProperty Name="goldSpent" ColumnName="goldSpent" />
+                <ScalarProperty Name="totalDamageDealt" ColumnName="totalDamageDealt" />
+                <ScalarProperty Name="totalDamageTaken" ColumnName="totalDamageTaken" />
+                <ScalarProperty Name="doubleKills" ColumnName="doubleKills" />
+                <ScalarProperty Name="tripleKills" ColumnName="tripleKills" />
+                <ScalarProperty Name="killingSprees" ColumnName="killingSprees" />
+                <ScalarProperty Name="largestKillingSpree" ColumnName="largestKillingSpree" />
+                <ScalarProperty Name="team" ColumnName="team" />
+                <ScalarProperty Name="win" ColumnName="win" />
+                <ScalarProperty Name="neutralMinionsKilled" ColumnName="neutralMinionsKilled" />
+                <ScalarProperty Name="largestMultiKill" ColumnName="largestMultiKill" />
+                <ScalarProperty Name="physicalDamageDealtPlayer" ColumnName="physicalDamageDealtPlayer" />
+                <ScalarProperty Name="magicDamageDealtPlayer" ColumnName="magicDamageDealtPlayer" />
+                <ScalarProperty Name="physicalDamageTaken" ColumnName="physicalDamageTaken" />
+                <ScalarProperty Name="magicDamageTaken" ColumnName="magicDamageTaken" />
+                <ScalarProperty Name="timePlayed" ColumnName="timePlayed" />
+                <ScalarProperty Name="totalHeal" ColumnName="totalHeal" />
+                <ScalarProperty Name="totalUnitsHealed" ColumnName="totalUnitsHealed" />
+                <ScalarProperty Name="assists" ColumnName="assists" />
+                <ScalarProperty Name="item0" ColumnName="item0" />
+                <ScalarProperty Name="item1" ColumnName="item1" />
+                <ScalarProperty Name="item2" ColumnName="item2" />
+                <ScalarProperty Name="item3" ColumnName="item3" />
+                <ScalarProperty Name="item4" ColumnName="item4" />
+                <ScalarProperty Name="item5" ColumnName="item5" />
+                <ScalarProperty Name="item6" ColumnName="item6" />
+                <ScalarProperty Name="sightWardsBought" ColumnName="sightWardsBought" />
+                <ScalarProperty Name="physicalDamageDealtToChampions" ColumnName="physicalDamageDealtToChampions" />
+                <ScalarProperty Name="totalDamageDealtToChampions" ColumnName="totalDamageDealtToChampions" />
+                <ScalarProperty Name="trueDamageDealtPlayer" ColumnName="trueDamageDealtPlayer" />
+                <ScalarProperty Name="trueDamageDealtToChampions" ColumnName="trueDamageDealtToChampions" />
+                <ScalarProperty Name="trueDamageTaken" ColumnName="trueDamageTaken" />
+                <ScalarProperty Name="wardPlaced" ColumnName="wardPlaced" />
+                <ScalarProperty Name="neutralMinionsKilledEnemyJungle" ColumnName="neutralMinionsKilledEnemyJungle" />
+                <ScalarProperty Name="neutralMinionsKilledYourJungle" ColumnName="neutralMinionsKilledYourJungle" />
+                <ScalarProperty Name="totalTimeCrowdControlDealt" ColumnName="totalTimeCrowdControlDealt" />
+                <ScalarProperty Name="barracksKilled" ColumnName="barracksKilled" />
+                <ScalarProperty Name="turretsKilled" ColumnName="turretsKilled" />
+                <ScalarProperty Name="largestCriticalStrike" ColumnName="largestCriticalStrike" />
+                <ScalarProperty Name="magicDamageDealtToChampions" ColumnName="magicDamageDealtToChampions" />
+                <ScalarProperty Name="visionWardsBought" ColumnName="visionWardsBought" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

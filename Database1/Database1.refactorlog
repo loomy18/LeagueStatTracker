@@ -91,4 +91,39 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Pass" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="26f01db3-8768-4e73-bef1-e77da8e410f9" ChangeDateTime="02/28/2014 01:24:06">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="UserId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7c96de5b-ea0c-43ef-8a20-e031d20cbd24" ChangeDateTime="02/28/2014 01:47:32">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Summoner1Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Summoner4Name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="3ff2b2b9-b741-4f90-ae81-e729183e1e8c" ChangeDateTime="02/28/2014 01:47:47">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Summoner1Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Summoner4Id" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="d73a7b27-cac4-4dea-bc14-6020e7df1434" ChangeDateTime="02/28/2014 01:47:49">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Summoner1Name]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Summoner5Name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="b5753cb0-1a1f-41a5-8737-900478dd48ee" ChangeDateTime="02/28/2014 01:47:53">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Summoner1Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Summoner5Id" />
+  </Operation>
 </Operations>

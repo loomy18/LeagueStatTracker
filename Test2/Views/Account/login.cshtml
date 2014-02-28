@@ -4,11 +4,51 @@
 }
 
 <div>
-    <script src="http://code.jquery.com/jquery-latest.js " type="text/javascript"></script>
-    <script>
+  
+ 
+
+    <asp:Login ID="LoginControl" runat="server">
+
+                    <table>
+                        <tr>
+                            <td>
+                                <label ID="UserNameLabel">User Name:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="Username" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label id="PasswordLabel">Password:</Label>
+                            </td>
+                            <td>
+                                <input type="text" id="Password" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label id="RembemberMeLabel">Remember me next time</label>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="RememberMe" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button id="LoginButton">Login</button>
+                            </td>
+                        </tr>
+                    </table>
+    </asp:Login>
+    <div id="LoginStatus" />
+    @Html.ActionLink("Registration", "Register")
+</div>
+
+@section scripts {
+<script>
         $(document).ready(function () {
             var path = "@Url.Action("ValidateUser")";
-            alert($("#RememberMe").prop("checked"));
             $("#LoginButton").click(function () {
                 $("#LoginStatus").html("Logging in...");
                 var data = {
@@ -35,46 +75,5 @@
                 });
             });
         });
-    </script>
-
-    <asp:Login ID="LoginControl" runat="server">
-        <table>
-            <tr>
-                <td>
-                    <table>
-                        <tr>
-                            <td>
-                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
-                            </td>
-                            <td>
-                                <input type="text" id="Username" />
-                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName" ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="LoginButton">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
-                            </td>
-                            <td>
-                                <input type="text" id="Password" />
-                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password" ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="LoginButton">*</asp:RequiredFieldValidator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">
-                                <input type="checkbox" id="RememberMe" text="Remember me next time." />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="button" id="LoginButton" />
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </asp:Login>
-    <div id="LoginStatus" />
-</div>
-<h2>@ViewBag.Title.</h2>
+</script>
+}

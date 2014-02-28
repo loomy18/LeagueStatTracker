@@ -1,0 +1,375 @@
+﻿@model IEnumerable<Test2.Models.GameTable>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.invalid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gameMode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gameType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.subType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mapId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.teamId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.championId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.spell1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.spell2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.levelVal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.createDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.summonerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.level)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.goldEarned)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numDeaths)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.minionsKilled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.championsKilled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.goldSpent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalDamageDealt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalDamageTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.doubleKills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tripleKills)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.killingSprees)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.largestKillingSpree)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.team)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.win)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.neutralMinionsKilled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.largestMultiKill)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.physicalDamageDealtPlayer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.magicDamageDealtPlayer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.physicalDamageTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.magicDamageTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.timePlayed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalHeal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalUnitsHealed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.assists)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item0)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item4)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item5)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.item6)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sightWardsBought)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.physicalDamageDealtToChampions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalDamageDealtToChampions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trueDamageDealtPlayer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trueDamageDealtToChampions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.trueDamageTaken)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.wardPlaced)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.neutralMinionsKilledEnemyJungle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.neutralMinionsKilledYourJungle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.totalTimeCrowdControlDealt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.barracksKilled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.turretsKilled)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.largestCriticalStrike)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.magicDamageDealtToChampions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.visionWardsBought)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.invalid)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gameMode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gameType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.subType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mapId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.teamId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.championId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.spell1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.spell2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.levelVal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.createDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.summonerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.level)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.goldEarned)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numDeaths)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.minionsKilled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.championsKilled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.goldSpent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalDamageDealt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalDamageTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.doubleKills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tripleKills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.killingSprees)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.largestKillingSpree)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.team)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.win)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.neutralMinionsKilled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.largestMultiKill)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.physicalDamageDealtPlayer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.magicDamageDealtPlayer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.physicalDamageTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.magicDamageTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.timePlayed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalHeal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalUnitsHealed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.assists)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item0)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item3)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item4)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item5)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.item6)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.sightWardsBought)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.physicalDamageDealtToChampions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalDamageDealtToChampions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trueDamageDealtPlayer)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trueDamageDealtToChampions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.trueDamageTaken)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.wardPlaced)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.neutralMinionsKilledEnemyJungle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.neutralMinionsKilledYourJungle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.totalTimeCrowdControlDealt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.barracksKilled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.turretsKilled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.largestCriticalStrike)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.magicDamageDealtToChampions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.visionWardsBought)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.gameId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.gameId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.gameId })
+        </td>
+    </tr>
+}
+
+</table>

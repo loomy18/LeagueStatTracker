@@ -38,7 +38,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel.DomainServices.EntityFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -78,6 +87,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <EntityDeploy Include="Models\StatModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StatModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\StatModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StatModel.edmx</DependentUpon>
+      <LastGenOutput>StatModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\StatModel.edmx.diagram">
+      <DependentUpon>StatModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\StatModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StatModel.edmx</DependentUpon>
+      <LastGenOutput>StatModel.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -92,13 +118,35 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Account\login.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Game\Index.cshtml" />
+    <Content Include="Views\Account\register.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\GameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GameTable.cs">
+      <DependentUpon>StatModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Register.cs" />
+    <Compile Include="Models\StatModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StatModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -114,7 +162,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LolApiDriver\LolApiDriver.csproj">
+      <Project>{9e51e5d2-cc88-41e6-8bcd-08f871b33e8c}</Project>
+      <Name>LolApiDriver</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,148 @@
+﻿@model Test2.Models.Register
+
+@{
+    ViewBag.Title = "register";
+}
+
+
+<asp:content></asp:content>
+<fieldset id="registerForm">
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post))
+    {
+        <div>
+            <table>
+                <tr>
+                    <td>
+                        <label id="UserNameLabel">User Name:</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.UserName)
+                    </td>
+                    <td style="width: 200px; color: Red" align="left">
+                        @Html.ValidationMessageFor(m => m.UserName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="SummonerNameLabel">Summoner Name:</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.SummonerName)
+                    </td>
+                    <td style="width: 200px; color: Red" align="left">
+                        @Html.ValidationMessageFor(m => m.SummonerName)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="EmailLabel">Email:</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Email)
+                    </td>
+                    <td style="width: 200px; color: Red" align="left">
+                        @Html.ValidationMessageFor(m => m.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="PasswordLabel">Password:</label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Password)
+                    </td>
+                    <td style="width: 200px; color: Red" align="left">
+                        @Html.ValidationMessageFor(m => m.Password)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="ConfirmPasswordLabel">Confirm Password: </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.ConfirmPassword)
+                    </td>
+                    <td style="width: 200px; color: Red" align="left">
+                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="QuestionLabel">Question: </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Question)
+                    </td>
+                    <td style="width: 200px; color: Red" align="left">
+                        @Html.ValidationMessageFor(m => m.Question)
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label id="QuestionAnswerLabel">Question Answer: </label>
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.QuestionAnswer)
+                    </td>
+                    <td style="width: 200px; color: Red" align="left">
+                        @Html.ValidationMessageFor(m => m.QuestionAnswer)
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="center">
+                        <input type="button" id="submitButton" value="Register" class="btnStyle" />
+                        <input type="button" value="Cancel" onclick="return
+                                 Cancel()" class="btnStyle" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="3" style="color:Red;" align="left">
+                        @Html.ValidationSummary(true)
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    }
+</fieldset>
+@section scripts {
+    <script>
+        $(function () {
+            var submitButton = $("#submitButton");
+            var registerForm = $("#registerForm");
+
+            //  Attach event handler to submit button
+            submitButton.click(function () {
+                SubmitInfo(registerForm);
+            });
+        });
+
+        //  Submits the Info form to Controller
+        //  formContainer: (jQuery) The form model to submit
+        function SubmitInfo(formContainer) {
+            var path = "@Url.Action("RegisterUser")";
+            var data1 = formContainer.serialize()
+            alert(path);
+            alert(data1);
+            $.ajax({
+                url: path,
+                type: 'post',
+                data: data1,
+                success: function (data) {
+                    if (data.IsSuccess) {
+                        // Clear the input tags
+                        formContainer.find("input[type='text']").each(function (i, element) {
+                            $(this).val('');
+                        });
+                    }
+
+                    alert(data.Message);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+    </script>
+}
