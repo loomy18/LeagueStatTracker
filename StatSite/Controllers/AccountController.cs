@@ -9,6 +9,7 @@ using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Configuration;
 using LolApiDriver;
+using LolApiDriver.Utility.StringUtil;
 
 
 namespace Test2.Controllers
@@ -86,6 +87,7 @@ namespace Test2.Controllers
         {
             string[] NameParameters = new string[] { "@Summoner1Name", "@Summoner2Name", "@Summoner3Name", "@Summoner4Name", "@Summoner5Name" };
             string[] IdParameters = new string[] { "@Summoner1Id", "@Summoner2Id", "@Summoner3Id", "@Summoner4Id", "@Summoner5Id" };
+            string[] ServerParameters = new string[] { "@Summoner1Server", "@Summoner2Server", "@Summoner3Server", "@Summoner4Server", "@Summoner5Server" };
             string connectionString = ConfigurationManager.ConnectionStrings["LeagueStatServer"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -98,6 +100,7 @@ namespace Test2.Controllers
                     LeagueApiDriver driver = new LeagueApiDriver(summonerNames[i], serverNames[i]);
                     command.Parameters.AddWithValue(NameParameters[i], summonerNames[i]);
                     command.Parameters.AddWithValue(IdParameters[i], driver.user.id);
+                    command.Parameters.AddWithValue(ServerParameters[i], serverNames[i]);
                     i++;
                 }
                 conn.Open();

@@ -64,8 +64,9 @@
     <Build Include="insertGame.sql" />
     <Build Include="UserTable.sql" />
     <Build Include="insertUser.sql" />
-    <Build Include="SummonerTable.sql" />
+    <Build Include="UserSummonerTable.sql" />
     <Build Include="InsertSummoner.sql" />
+    <Build Include="SummonerTable.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database1.refactorlog" />

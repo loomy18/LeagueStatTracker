@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
+using Newtonsoft.Json;
+using RestSharp;
 
 namespace LolApiDriver
 {

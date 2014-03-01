@@ -51,6 +51,7 @@
     <Compile Include="LolDataDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RecentResponse.cs" />
+    <Compile Include="Utility\StringUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -126,4 +126,60 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Summoner5Id" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="92f66e14-e256-4e1a-8ddf-421522a889fa" ChangeDateTime="03/01/2014 06:15:14">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Summoner1Server]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Summoner2Server" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="de274039-581f-4d94-b6ed-c1993117a3ad" ChangeDateTime="03/01/2014 06:15:18">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Summoner1Server]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Summoner3Server" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="035df83e-e4be-466f-a7fd-b236a0da118d" ChangeDateTime="03/01/2014 06:15:21">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Summoner1Server]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Summoner4Server" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2c3e0c34-aa16-407f-9689-e3feea776da3" ChangeDateTime="03/01/2014 06:15:24">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Summoner1Server]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Summoner5Server" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="2c00c091-3d07-44a9-8915-0695db37c9be" ChangeDateTime="03/01/2014 06:17:34">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Id]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="SummonerId" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="bf98437c-e20c-4994-92a8-3811a28cc7dc" ChangeDateTime="03/01/2014 06:18:03">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[SummonerName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Name" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="8a6fe3f7-34e0-4f70-9dab-e31bb09c7df8" ChangeDateTime="03/01/2014 06:18:06">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[SummonerServer]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Server" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="7eeaaf32-508b-4ce2-86e9-28063c782a26" ChangeDateTime="03/01/2014 06:24:29">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[Server]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="ServerName" />
+  </Operation>
 </Operations>
