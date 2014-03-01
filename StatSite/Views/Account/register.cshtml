@@ -123,8 +123,6 @@
         function SubmitInfo(formContainer) {
             var path = "@Url.Action("RegisterUser")";
             var data1 = formContainer.serialize()
-            alert(path);
-            alert(data1);
             $.ajax({
                 url: path,
                 type: 'post',

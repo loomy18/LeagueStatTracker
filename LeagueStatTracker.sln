@@ -7,7 +7,7 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "StatData", "Database1\StatD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LolApiDriver", "LolApiDriver\LolApiDriver.csproj", "{9E51E5D2-CC88-41E6-8BCD-08F871B33E8C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStatSite", "Test2\LeagueStatSite.csproj", "{22DE2971-F9F0-4F69-8C9D-B53BE4E29CAD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeagueStatSite", "StatSite\LeagueStatSite.csproj", "{22DE2971-F9F0-4F69-8C9D-B53BE4E29CAD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
