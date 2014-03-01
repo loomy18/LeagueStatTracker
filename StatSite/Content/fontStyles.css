@@ -1,0 +1,10 @@
+﻿body {
+}
+
+.ValidationMessage {
+    color:red;
+}
+.fieldInput {
+    color: white;
+    font-weight:bold;
+}

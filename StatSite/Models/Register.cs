@@ -14,10 +14,8 @@ namespace LOLSA.Models
         [Required(ErrorMessage = "Username Required:")]
         public string UserName { get; set; }
         
-        //[ValidSummonerAttribute(ErrorMessage="Invalid Summoner Name")]
+        [ValidSummonerAttribute(ErrorMessage="Invalid Summoner Name")]
         //[Required(ErrorMessage = "Summoner Name Required:")]
-        //[DisplayName("Summoner Name:")]
-        //[RegularExpression(@"^[a-zA-Z'.\s]{1,40}$", ErrorMessage = "Invalid Summoner Name")]
         public string SummonerName { get; set; }
         
         

@@ -7,84 +7,47 @@
 
 <asp:content></asp:content>
 
-    @using (Html.BeginForm("RegisterUser", "Account"))
-    {
+@using (Html.BeginForm("RegisterUser", "Account"))
+{
     <fieldset id="registerForm">
         <div class="container app-container-signin">
-            <table class="container">
-                <tr>
-                    <td>
-                        @Html.TextBoxFor(m => m.UserName, new { data_bind = "value: Name:", @class= "form-control app-fill-lightgray app-border-darkgray", @placeholder="Usernamne"})
-                    </td>
-                    <td style="width: 200px; color: Red" align="left">
-                        @Html.ValidationMessageFor(m => m.UserName)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.TextBoxFor(m => m.SummonerName)
-                    </td>
-                    <td style="width: 200px; color: Red" align="left">
-                        @Html.ValidationMessageFor(m => m.SummonerName)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.DropDownListFor(m => m.Server, new SelectList(
+
+            @Html.TextBoxFor(m => m.UserName, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Username" })
+
+            @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "ValidationMessage" })
+
+            @Html.TextBoxFor(m => m.SummonerName, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Summonername" })
+
+            @Html.ValidationMessageFor(m => m.SummonerName, null, new { @class = "ValidationMessage" })
+            
+            @Html.DropDownListFor(m => m.Server, new SelectList(
                   new List<Object>{
                        new { value = 0 , text = "na"  },
                        new { value = 1 , text = "euw" },
                     },
                   "value",
                   "text",
-                   0))
-                    </td>
-                    <td style="width: 200px; color: Red" align="left"></td>
-                </tr>
+                   0), new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput" })
 
-                <tr>
-                    <td>
-                        @Html.TextBoxFor(m => m.Email)
-                    </td>
-                    <td style="width: 200px; color: Red" align="left">
-                        @Html.ValidationMessageFor(m => m.Email)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.PasswordFor(m => m.Password)
-                    </td>
-                    <td style="width: 200px; color: Red" align="left">
-                        @Html.ValidationMessageFor(m => m.Password)
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        @Html.PasswordFor(m => m.ConfirmPassword)
-                    </td>
-                    <td style="width: 200px; color: Red" align="left">
-                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" align="center">
-                        <input type="submit" id="submitButtonT" value="Register" class="btnStyle" />
-                        <input type="button" value="Cancel" onclick="return
-                                 Cancel()" class="btnStyle" />
-                    </td>
+            @Html.TextBoxFor(m => m.Email, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Email" })
 
-                </tr>
-                <tr>
-                    <td colspan="3" style="color:Red;" align="left">
+            @Html.ValidationMessageFor(m => m.Email, null, new { @class = "ValidationMessage" })
 
-                        @Html.ValidationMessageFor(m => m.UserName)
-                    </td>
+            @Html.PasswordFor(m => m.Password, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Password" })
 
-                </tr>
-            </table>
+            @Html.ValidationMessageFor(m => m.Password, null, new { @class = "ValidationMessage" })
+
+            @Html.PasswordFor(m => m.ConfirmPassword, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Confirm Password" })
+
+            @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "ValidationMessage" })
+
+
+            @Html.ValidationMessageFor(m => m.UserName)
+            <button type="submit" id="LoginButton" class="btn btn-lg btn-primary btn-block">Register</button>
+
         </div>
     </fieldset>
-    }
+}
 
 @section scripts {
     <script>
@@ -117,7 +80,7 @@
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    
+
                 }
             });
         }

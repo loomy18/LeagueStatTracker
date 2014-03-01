@@ -10,6 +10,7 @@ namespace LolApiDriver.Utility
    {
         public static string ExceptBlanks(string str)
         {
+            if (str == null) return "";
             StringBuilder sb = new StringBuilder(str.Length);
             for (int i = 0; i < str.Length; i++)
             {
