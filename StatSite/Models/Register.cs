@@ -5,9 +5,9 @@ using System.Web;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Data.Sql;
-using Test2.Models.CustomValidations;
+using LOLSA.Models.CustomValidations;
 
-namespace Test2.Models
+namespace LOLSA.Models
 {
     public class Register
     {

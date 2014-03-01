@@ -4,15 +4,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
-using Test2.Models;
+using LOLSA.Models;
 using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Configuration;
 using LolApiDriver;
-using LolApiDriver.Utility.StringUtil;
+using LolApiDriver.Utility;
 
 
-namespace Test2.Controllers
+namespace LOLSA.Controllers
 {
     public class AccountController : Controller
     {

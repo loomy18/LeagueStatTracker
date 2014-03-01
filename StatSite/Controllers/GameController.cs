@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Test2.Models;
+using LOLSA.Models;
 
-namespace Test2.Controllers
+namespace LOLSA.Controllers
 {
     public class GameController : Controller
     {

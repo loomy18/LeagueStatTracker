@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Test2.Controllers
+namespace LOLSA.Controllers
 {
     [Authorize]
     public class HomeController : Controller

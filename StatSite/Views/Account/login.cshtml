@@ -3,48 +3,25 @@
     ViewBag.Title = "login";
 }
 
-<div>
-  
- 
+<div class="container app-container-signin">
+    <form class="app-form-signin" role="form">
 
-    <asp:Login ID="LoginControl" runat="server">
+        <input type="text"
+               class="form-control
+               app-fill-lightgray
+               app-border-darkgray" id="Username" placeholder="Username" required autofocus>
 
-                    <table>
-                        <tr>
-                            <td>
-                                <label ID="UserNameLabel">User Name:</label>
-                            </td>
-                            <td>
-                                <input type="text" id="Username" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label id="PasswordLabel">Password:</Label>
-                            </td>
-                            <td>
-                                <input type="password" id="Password" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <label id="RembemberMeLabel">Remember me next time</label>
-                            </td>
-                            <td>
-                                <input type="checkbox" id="RememberMe" />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <button id="LoginButton">Login</button>
-                            </td>
-                        </tr>
-                    </table>
-    </asp:Login>
-    <div id="LoginStatus" />
-    @Html.ActionLink("Registration", "Register")
+        <input type="password"
+               class="form-control
+               app-fill-lightgray
+               app-border-darkgray" id="Password" placeholder="Password" required>
+
+        <label class="checkbox app-clr-green">
+            <input type="checkbox" id="RememberMe" value="remember-me"> Remember me
+        </label>
+        <button type="button" id="LoginButton" class="btn btn-lg btn-primary btn-block">Sign in</button>
+    </form>
 </div>
-
 @section scripts {
 <script>
         $(document).ready(function () {
@@ -56,6 +33,7 @@
                     "password": $("#Password").val(),
                     "rememberme": $("#RememberMe").prop("checked")
                 };
+                alert(data);
                 $.ajax({
                     url: path,
                     type: "POST",

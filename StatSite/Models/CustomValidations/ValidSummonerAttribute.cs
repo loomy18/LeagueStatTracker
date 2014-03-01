@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using LolApiDriver;
 
 
-namespace Test2.Models.CustomValidations
+namespace LOLSA.Models.CustomValidations
 {
     public class ValidSummonerAttribute: ValidationAttribute
     {

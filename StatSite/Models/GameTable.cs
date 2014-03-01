@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Test2.Models
+namespace LOLSA.Models
 {
     using System;
     using System.Collections.Generic;

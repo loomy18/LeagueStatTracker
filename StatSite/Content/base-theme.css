@@ -1,0 +1,111 @@
+/*!
+ *  Foundational Theme
+ */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 32px;
+}
+
+#app-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 32px;
+    background-color: rgb(32,32,32);
+}
+
+
+.app-clr-obsidian {
+    color: rgb(16, 16, 16);
+}
+
+.app-fill-darkgray {
+    background-color: rgb(32, 32, 32);
+}
+
+.app-clr-darkgray {
+    color: rgb(32, 32, 32);
+}
+
+.app-border-darkgray {
+    border-color: rgb(32, 32, 32);
+}
+
+.app-fill-mediumgray {
+    background-color: rgb(48, 48, 48);
+}
+
+.app-clr-mediumgray {
+    color: rgb(48, 48, 48);
+}
+
+.app-border-mediumgray {
+    border-color: rgb(48, 48, 48);
+}
+
+.app-fill-lightgray {
+    background-color: rgb(64, 64, 64);
+}
+
+.app-clr-lightgray {
+    color: rgb(64, 64, 64);
+}
+
+.app-border-lightgray {
+    border-color: rgb(64, 64, 64);
+}
+
+.app-clr-green {
+    color: rgb(8, 200, 86);
+}
+
+.app-container-signin {
+    margin-top: 10%;
+}
+
+.app-form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .app-form-signin .app-form-signin .checkbox {
+        margin-bottom: 10px;
+    }
+
+    .app-form-signin .checkbox {
+        font-weight: normal;
+    }
+
+    .app-form-signin .form-control {
+        position: relative;
+        height: auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+        .app-form-signin .form-control:focus {
+            z-index: 2;
+        }
+
+    .app-form-signin input[type="email"] {
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+    }
+
+    .app-form-signin input[type="password"] {
+        margin-bottom: 10px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
