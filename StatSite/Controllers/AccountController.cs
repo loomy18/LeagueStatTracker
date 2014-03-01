@@ -29,7 +29,7 @@ namespace Test2.Controllers
         [HttpPost]
         public JsonResult ValidateUser(string userid, string password,
                                        bool rememberme)
-        {   
+        {
             LoginStatus status = new LoginStatus();
             if (Membership.ValidateUser(userid, password))
             {
@@ -59,49 +59,55 @@ namespace Test2.Controllers
         }
         [HttpPost]
         //public JsonResult RegisterUser(string Username, string SummonerName, string Email, string Password, string ConfirmPassword, string Question, string QuestionAnswer)
-        public JsonResult RegisterUser(Register registerInfo)
+        public ActionResult RegisterUser(Register registerInfo)
         {
-            MembershipCreateStatus status = new MembershipCreateStatus();
-            MembershipUser newUser = Membership.CreateUser(registerInfo.UserName, registerInfo.Password, registerInfo.Email, registerInfo.Question, registerInfo.QuestionAnswer, true, out status);
-            switch (status)
+            if (ModelState.IsValid)
             {
-                case MembershipCreateStatus.Success:
-                    string[] summonerNames = new string[5];
-                    string[] serverNames = new string[5];
-                    summonerNames[0] = registerInfo.SummonerName;
-                    serverNames[0] = "na";
-                    insertSummonerData(summonerNames, serverNames, newUser.ProviderUserKey.ToString());
-                    return Json(status);
-                default:
-                    return Json(status);
+                MembershipCreateStatus status = new MembershipCreateStatus();
+                MembershipUser newUser = Membership.CreateUser(registerInfo.UserName, registerInfo.Password, registerInfo.Email, null, null, true, out status);
+                switch (status)
+                {
+                    case MembershipCreateStatus.Success:
+                        string[] summonerNames = new string[5];
+                        string[] serverNames = new string[5];
+                        summonerNames[0] = registerInfo.SummonerName;
+                        serverNames[0] = "na";
+                        insertSummonerData(summonerNames, serverNames, newUser.ProviderUserKey.ToString());
+                        break;
+                    default:
+                        break;
+                }
+                return View("login");
             }
+            return View("register", registerInfo);
         }
+
         public void insertSummonerData(string[] summonerNames, string[] serverNames, string userId)
         {
-           string[] NameParameters = new string[] { "@Summoner1Name", "@Summoner2Name", "@Summoner3Name", "@Summoner4Name", "@Summoner5Name" };
-           string[] IdParameters= new string[] { "@Summoner1Id", "@Summoner2Id", "@Summoner3Id", "@Summoner4Id", "@Summoner5Id" };
-           string connectionString = ConfigurationManager.ConnectionStrings["LeagueStatServer"].ConnectionString;
-           using (SqlConnection conn = new SqlConnection(connectionString))
-           {
-               SqlCommand command = new SqlCommand("InsertSummoner", conn);
-               command.CommandType = System.Data.CommandType.StoredProcedure;
-               command.Parameters.AddWithValue("@Userid", userId);
-               int i = 0;
-               while (summonerNames[i] != null)
-               {
-                   LeagueApiDriver driver = new LeagueApiDriver(summonerNames[i], serverNames[i]);
-                   command.Parameters.AddWithValue(NameParameters[i], summonerNames[i]);
-                   command.Parameters.AddWithValue(IdParameters[i], driver.user.id);
-                   i++;
-               }
-               conn.Open();
-               command.ExecuteNonQuery();
-           }
+            string[] NameParameters = new string[] { "@Summoner1Name", "@Summoner2Name", "@Summoner3Name", "@Summoner4Name", "@Summoner5Name" };
+            string[] IdParameters = new string[] { "@Summoner1Id", "@Summoner2Id", "@Summoner3Id", "@Summoner4Id", "@Summoner5Id" };
+            string connectionString = ConfigurationManager.ConnectionStrings["LeagueStatServer"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand("InsertSummoner", conn);
+                command.CommandType = System.Data.CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@Userid", userId);
+                int i = 0;
+                while (summonerNames[i] != null)
+                {
+                    LeagueApiDriver driver = new LeagueApiDriver(summonerNames[i], serverNames[i]);
+                    command.Parameters.AddWithValue(NameParameters[i], summonerNames[i]);
+                    command.Parameters.AddWithValue(IdParameters[i], driver.user.id);
+                    i++;
+                }
+                conn.Open();
+                command.ExecuteNonQuery();
+            }
         }
-	}
-    
-    
-    
+    }
+
+
+
     public class LoginStatus
     {
         public bool Success { get; set; }

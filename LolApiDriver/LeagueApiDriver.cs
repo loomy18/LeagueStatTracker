@@ -14,6 +14,7 @@ namespace LolApiDriver
         string summonerName {get; set;}
         string serverName {get; set;}
         public LeagueUser user {get; set;}
+        public static string[] Servers = new string[] { "na", "euw" };
 
         public LeagueApiDriver(string summonerName, string serverName){
             this.summonerName = summonerName;

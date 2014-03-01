@@ -9,13 +9,14 @@ namespace Test2.Controllers
 {
     public class GameController : Controller
     {
-        private StatDataEntities1 entities = new StatDataEntities1();
+        //private StatDataEntities1 entities = new StatDataEntities1();
 
         //
         // GET: /Game/
         public ActionResult Index()
         {
-            return View(entities.GameTables.ToList());
+            //return View(entities.GameTables.ToList());
+            return View();
         }
           public ActionResult Details(int id)
 
