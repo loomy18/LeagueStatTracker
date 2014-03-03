@@ -47,7 +47,7 @@ namespace LOLSA.Controllers
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
- 
+
         [HttpPost]
         public ActionResult ValidateUser(Login login)
         {
@@ -65,7 +65,7 @@ namespace LOLSA.Controllers
             }
             return View();
         }
-        
+
 
         [HttpPost]
         //public JsonResult RegisterUser(string Username, string SummonerName, string Email, string Password, string ConfirmPassword, string Question, string QuestionAnswer)
@@ -83,13 +83,26 @@ namespace LOLSA.Controllers
                         //summonerNames[0] = registerInfo.Summoner1Name;
                         serverNames[0] = "na";
                         insertSummonerData(registerInfo.Summoners, newUser.ProviderUserKey.ToString());
+                        return View("login");
+                    case MembershipCreateStatus.DuplicateEmail:
+                        ModelState.AddModelError("Email", "Email already exists");
+                        break;
+                    case MembershipCreateStatus.DuplicateUserName:
+                        ModelState.AddModelError("Username", "Username is taken");
                         break;
                     default:
                         break;
                 }
-                return View("login");
             }
             return View("register", registerInfo);
+        }
+
+        [AllowAnonymous]
+        public string CheckUsername(string input)
+        {
+            bool available = (Membership.GetUser(input) == null);
+            if (available) return "Available";
+            else return "Not Available";
         }
 
         public void insertSummonerData(ICollection<SummonerInfo> summoners, string userId)

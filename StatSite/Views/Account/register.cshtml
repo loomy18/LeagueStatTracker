@@ -11,6 +11,7 @@
 
             @Html.TextBoxFor(m => m.Username, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Username" })
             @Html.ValidationMessageFor(m => m.Username, null, new { @class = "ValidationMessage" })
+            <span id="statusSpan" />
 
             <div id="summoners">
                 @Html.EditorFor(m => m.Summoners)
@@ -36,41 +37,6 @@
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script>
-        $(function () {
-            var submitButton = $("#submitButton");
-            var registerForm = $("#registerForm");
-
-            //  Attach event handler to submit button
-            submitButton.click(function () {
-                SubmitInfo(registerForm);
-            });
-        });
-
-        //  Submits the Info form to Controller
-        //  formContainer: (jQuery) The form model to submit
-        function SubmitInfo(formContainer) {
-            var path = "@Url.Action("RegisterUser")";
-            var data1 = formContainer.serialize()
-            $.ajax({
-                url: path,
-                type: 'post',
-                data: data1,
-                success: function (data) {
-                    if (data.IsSuccess) {
-                        // Clear the input tags
-                        formContainer.find("input[type='text']").each(function (i, element) {
-                            $(this).val('');
-                        });
-                    }
-
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-
-                }
-            });
-        }
-    </script>
-    <script>
         $(document).ready(function () {
 
             $('#registerForm').validate({
@@ -85,6 +51,24 @@
                         .closest('.control-group').removeClass('error').addClass('success');
                 }
             });
+            $('#Username').blur(function () {
+                alert("test");
+                var url = "/Account/CheckUserName";
+                var name = $('#Username').val();
+                $.get(url, { input: name }, function (data) {
+                    if (data == "Available") {
+                        $("#statusSpan").html("<span style='color:green'>Available</span>");
+                        $("#UserName").css('background-color', '');
+                    }
+                    else {
+                        $("#statusSpan").html("<span style='color:red'>Not Available</span>");
+                        $("#Username").css('background-color', '#e97878');
+                    }
+                });
+            })
         });
+    </script>
+    <script type="text/jscript">
+       
     </script>
 }

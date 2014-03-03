@@ -66,6 +66,7 @@
     <Build Include="UserSummonerTable.sql" />
     <Build Include="InsertSummoner.sql" />
     <Build Include="SummonerTable.sql" />
+    <Build Include="getSummonerIds.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database1.refactorlog" />

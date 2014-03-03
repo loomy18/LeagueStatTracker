@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LolsaDataClasses">
+  <DataContextMoniker Name="/LolsaDataClassesDataContext" />
+  <nestedChildShapes>
+    <classShape Id="49dfaa96-64c1-417a-a72f-d2be84b169e3" absoluteBounds="2, 1.75, 2, 1.3862939453125">
+      <DataClassMoniker Name="/LolsaDataClassesDataContext/SummonerTable" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ca670ba6-07e9-4431-8a09-100806ab109e" absoluteBounds="2.0149999999999997, 2.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
