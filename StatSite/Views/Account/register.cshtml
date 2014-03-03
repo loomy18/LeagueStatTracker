@@ -1,55 +1,40 @@
 ﻿@model LOLSA.Models.Register
-
+@using LOLSA.Models
 @{
     ViewBag.Title = "register";
 }
-
-
-<asp:content></asp:content>
-
+<link href="~/Content/fontStyles.css" rel="stylesheet">
 @using (Html.BeginForm("RegisterUser", "Account"))
 {
     <fieldset id="registerForm">
         <div class="container app-container-signin">
 
-            @Html.TextBoxFor(m => m.UserName, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Username" })
+            @Html.TextBoxFor(m => m.Username, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Username" })
+            @Html.ValidationMessageFor(m => m.Username, null, new { @class = "ValidationMessage" })
 
-            @Html.ValidationMessageFor(m => m.UserName, null, new { @class = "ValidationMessage" })
-
-            @Html.TextBoxFor(m => m.SummonerName, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Summonername" })
-
-            @Html.ValidationMessageFor(m => m.SummonerName, null, new { @class = "ValidationMessage" })
-            
-            @Html.DropDownListFor(m => m.Server, new SelectList(
-                  new List<Object>{
-                       new { value = 0 , text = "na"  },
-                       new { value = 1 , text = "euw" },
-                    },
-                  "value",
-                  "text",
-                   0), new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput" })
+            <div id="summoners">
+                @Html.EditorFor(m => m.Summoners)
+                @Html.AddLink("Add Summoner", "#summoners", ".summoner", "Summoners", typeof(LOLSA.Models.SummonerInfo))
+            </div>
 
             @Html.TextBoxFor(m => m.Email, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Email" })
-
             @Html.ValidationMessageFor(m => m.Email, null, new { @class = "ValidationMessage" })
 
             @Html.PasswordFor(m => m.Password, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Password" })
-
             @Html.ValidationMessageFor(m => m.Password, null, new { @class = "ValidationMessage" })
 
             @Html.PasswordFor(m => m.ConfirmPassword, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Confirm Password" })
-
             @Html.ValidationMessageFor(m => m.ConfirmPassword, null, new { @class = "ValidationMessage" })
 
-
-            @Html.ValidationMessageFor(m => m.UserName)
             <button type="submit" id="LoginButton" class="btn btn-lg btn-primary btn-block">Register</button>
-
         </div>
     </fieldset>
 }
 
 @section scripts {
+    <script src="~/Scripts/Register.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
     <script>
         $(function () {
             var submitButton = $("#submitButton");
@@ -84,5 +69,22 @@
                 }
             });
         }
+    </script>
+    <script>
+        $(document).ready(function () {
+
+            $('#registerForm').validate({
+                rules: {
+
+                },
+                highlight: function (element) {
+                    $(element).closest('.control-group').removeClass('success').addClass('error');
+                },
+                success: function (element) {
+                    element.text('OK!').addClass('valid')
+                        .closest('.control-group').removeClass('error').addClass('success');
+                }
+            });
+        });
     </script>
 }

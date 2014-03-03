@@ -10,11 +10,11 @@
 @Summoner3Id int = null,
 @Summoner4Id int = null,
 @Summoner5Id int = null,
-@Summoner1Server varchar(10),
-@Summoner2Server varchar(10) = null,
-@Summoner3Server varchar(10) = null,
-@Summoner4Server varchar(10) = null,
-@Summoner5Server varchar(10) = null
+@Summoner1Server int,
+@Summoner2Server int = null,
+@Summoner3Server int = null,
+@Summoner4Server int = null,
+@Summoner5Server int = null
 
 AS
   BEGIN
@@ -39,18 +39,18 @@ AS
         VALUES                   (@UserId, @Summoner1Name, @Summoner1Id, @Summoner2Name, @Summoner2Id, @Summoner3Name, @Summoner3Id, @Summoner4Name, @Summoner4Id, @Summoner5Name, @Summoner5Id)
 
 		IF(@Summoner1Id!=null AND NOT EXISTS (SELECT 1 FROM SummonerTable WHERE SummonerId = @Summoner1Id ))
-			INSERT INTO SummonerTable(SummonerId, Name, ServerName)
+			INSERT INTO SummonerTable(SummonerId, Name, Server)
 			VALUES				     (@Summoner1Id, @Summoner1Name, @Summoner1Server)
 		IF(@Summoner2Id!=null AND NOT EXISTS (SELECT 1 FROM SummonerTable WHERE SummonerId = @Summoner1Id ))
-			INSERT INTO SummonerTable(SummonerId, Name, ServerName)
+			INSERT INTO SummonerTable(SummonerId, Name, Server)
 			VALUES				     (@Summoner2Id, @Summoner2Name, @Summoner2Server)
 		IF(@Summoner3Id!=null AND NOT EXISTS (SELECT 1 FROM SummonerTable WHERE SummonerId = @Summoner1Id ))
-			INSERT INTO SummonerTable(SummonerId, Name, ServerName)
+			INSERT INTO SummonerTable(SummonerId, Name, Server)
 			VALUES				     (@Summoner3Id, @Summoner3Name, @Summoner3Server)
 		IF(@Summoner4Id!=null AND NOT EXISTS (SELECT 1 FROM SummonerTable WHERE SummonerId = @Summoner1Id ))
-			INSERT INTO SummonerTable(SummonerId, Name, ServerName)
+			INSERT INTO SummonerTable(SummonerId, Name, Server)
 			VALUES				     (@Summoner4Id, @Summoner4Name, @Summoner4Server)
 		IF(@Summoner5Id!=null AND NOT EXISTS (SELECT 1 FROM SummonerTable WHERE SummonerId = @Summoner1Id ))
-			INSERT INTO SummonerTable(SummonerId, Name, ServerName)
+			INSERT INTO SummonerTable(SummonerId, Name, Server)
 			VALUES				     (@Summoner5Id, @Summoner5Name, @Summoner5Server)
   END

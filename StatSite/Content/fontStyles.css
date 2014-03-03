@@ -8,3 +8,13 @@
     color: white;
     font-weight:bold;
 }
+
+.input-validation-error
+{
+border: 1px solid #ff0000;
+}
+
+#RememberMe
+{
+    color: white;
+}

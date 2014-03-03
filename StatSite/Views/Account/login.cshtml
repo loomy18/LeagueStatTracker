@@ -1,57 +1,25 @@
-﻿
+﻿@model LOLSA.Models.Login
 @{
     ViewBag.Title = "login";
 }
 
-<div class="container app-container-signin">
-    <form class="app-form-signin" role="form">
+@using (Html.BeginForm("ValidateUser", "Account"))
+{
+    <fieldset id="registerForm">
+        <div class="container app-container-signin">
+            @Html.TextBoxFor(m => m.Username, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Username" })
+            @Html.ValidationMessageFor(m => m.Username, null, new { @class = "ValidationMessage" })
 
-        <input type="text"
-               class="form-control
-               app-fill-lightgray
-               app-border-darkgray" id="Username" placeholder="Username" required autofocus>
+            @Html.PasswordFor(m => m.Password, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Password" })
+            @Html.ValidationMessageFor(m => m.Password, null, new { @class = "ValidationMessage" })
 
-        <input type="password"
-               class="form-control
-               app-fill-lightgray
-               app-border-darkgray" id="Password" placeholder="Password" required>
-
-        <label class="checkbox app-clr-green">
-            <input type="checkbox" id="RememberMe" value="remember-me"> Remember me
-        </label>
-        <button type="button" id="LoginButton" class="btn btn-lg btn-primary btn-block">Sign in</button>
-    </form>
-</div>
+            <button type="submit" id="LoginButton" class="btn btn-lg btn-primary btn-block">Login</button>
+                @Html.CheckBoxFor(m => m.RememberMe, new { data_bind = "value: Name:", @class="checkbox", @style="float: left; margin-right: 10px;" })
+                <span style="color:white">Remember me</span>
+        </div>
+    </fieldset>
+}
 @section scripts {
-<script>
-        $(document).ready(function () {
-            var path = "@Url.Action("ValidateUser")";
-            $("#LoginButton").click(function () {
-                $("#LoginStatus").html("Logging in...");
-                var data = {
-                    "userid": $("#Username").val(),
-                    "password": $("#Password").val(),
-                    "rememberme": $("#RememberMe").prop("checked")
-                };
-                alert(data);
-                $.ajax({
-                    url: path,
-                    type: "POST",
-                    data: JSON.stringify(data),
-                    dataType: "json",
-                    contentType: "application/json",
-                    success: function (status) {
-                        $("#LoginStatus").html(status.Message);
-                        if (status.Success) {
-                            window.location.href = status.TargetURL;
-                        }
-                    },
-                    error: function (jqXHR, textStatus, errorThrown) {
-                        alert(JSON.stringify(jqXHR));
-                        alert("AJAX error: " + textStatus + ' : ' + errorThrown);
-                    }
-                });
-            });
-        });
-</script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
 }

@@ -13,12 +13,16 @@ namespace LOLSA.Models.CustomValidations
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            Register register = (Register)validationContext.ObjectInstance;
-            string serverName = LeagueApiDriver.Servers[register.Server];
-            string summonerName = register.SummonerName;
-            LeagueApiDriver driver = new LeagueApiDriver(summonerName, "na");
-
-            if (driver.user != null) return ValidationResult.Success;
+            SummonerInfo summonerInfo = (SummonerInfo)validationContext.ObjectInstance;
+            if (summonerInfo.DeleteSummoner == true) return ValidationResult.Success;
+            string serverName = LeagueApiDriver.Servers[summonerInfo.Server];
+            string summonerName = summonerInfo.SummonerName;
+            LeagueApiDriver driver = new LeagueApiDriver(summonerName, serverName);
+            if (driver.user != null)
+            {
+                summonerInfo.SummonerId = driver.user.id;
+                return ValidationResult.Success;
+            }
             else return new ValidationResult("Invalid Summoner");
         }
     }

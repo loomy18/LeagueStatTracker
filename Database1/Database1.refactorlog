@@ -182,4 +182,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="ServerName" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="803f40d2-edb1-4f61-9993-ee76fab6caf8" ChangeDateTime="03/03/2014 16:59:52">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[ServerName]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Server" />
+  </Operation>
 </Operations>
