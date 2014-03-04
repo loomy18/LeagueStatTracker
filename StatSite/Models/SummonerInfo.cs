@@ -26,6 +26,7 @@ namespace LOLSA.Models
         
         [ValidSummonerAttribute(ErrorMessage="Invalid Summoner Name")]
         public string SummonerName { get; set; }
+        //do we still need?
         public bool DeleteSummoner { get; set; }
         public int SummonerId { get; set; }
     }

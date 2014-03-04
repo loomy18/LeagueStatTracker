@@ -6,6 +6,8 @@
             @Html.DropDownListFor(m => m.Server, Model.Servers, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput" })
             @Html.ValidationMessageFor(m => m.SummonerName, null, new { @class = "ValidationMessage" })
             @Html.HiddenFor(m => m.DeleteSummoner, new { @class = "mark-for-delete" })
-            @Html.RemoveLink("Remove", "div.summoner", "input.mark-for-delete")
+            <span id="RemoveSummoner">
+                @Html.RemoveLink("Remove", "div.summoner", "input.mark-for-delete")
+            </span>
         </p>
 </div>

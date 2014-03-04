@@ -28,24 +28,26 @@ namespace LOLSA.Controllers
             register.CreateSummonerInfos(1);
             return View(register);
         }
-        [HttpPost]
-        public ActionResult Register(Register employee)
-        {
-            // TODO
-            return Redirect("New");
-        }
-        //[HttpPost, ValidateInput(false)]
-        //public ActionResult Register(Register model)
-        //{
-        //    if (ModelState.IsValid) return View(model);
-        //    return RedirectToAction("Register", "Account");
-        //}
 
         public ActionResult LogOut()
         {
             Session.Clear();
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public JsonResult checkUserName(string Username)
+        {
+            var user = Membership.GetUser(Username);
+            return Json(user == null);
+        }
+
+        [HttpPost]
+        public JsonResult checkEmail(string Email)
+        {
+            var user = Membership.GetUserNameByEmail(Email);
+            return Json(user == null);
         }
 
         [HttpPost]
@@ -97,13 +99,6 @@ namespace LOLSA.Controllers
             return View("register", registerInfo);
         }
 
-        [AllowAnonymous]
-        public string CheckUsername(string input)
-        {
-            bool available = (Membership.GetUser(input) == null);
-            if (available) return "Available";
-            else return "Not Available";
-        }
 
         public void insertSummonerData(ICollection<SummonerInfo> summoners, string userId)
         {

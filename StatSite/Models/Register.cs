@@ -18,26 +18,13 @@ namespace LOLSA.Models
             this.Summoners = new HashSet<SummonerInfo>();
         }
 
-        //private ICollection<SummonerInfo> _Summoners = new List<SummonerInfo>();
-
-        //public virtual ICollection<SummonerInfo> Summoners
-        //{
-        //    get { return _Summoners; }
-        //    set { _Summoners= value; }
-        //}
         public ICollection<SummonerInfo> Summoners { get; set; }
 
-        //public SummonerInfo Summoner { get; set; }
-
+        [Remote("checkUserName", "Account", HttpMethod="Post", ErrorMessage="User name is already in use")]
         [Required(ErrorMessage = "Username Required:")]
         public string Username { get; set; }
 
-        //public SelectList Servers { get; set; }
-        
-        //[ValidSummonerAttribute(ErrorMessage="Invalid Summoner Name")]
-        ////[Required(ErrorMessage = "Summoner Name Required:")]
-        //public string Summoner1Name { get; set; }  
-
+        [Remote("checkEmail", "Account", HttpMethod = "Post", ErrorMessage = "Email is already in use")]
         [Required(ErrorMessage = "Email required:")]
         [DisplayName("Email:")]
         [RegularExpression(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Invalid Email")]

@@ -60,9 +60,9 @@
                         <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                             @using (Html.BeginForm("ValidateUser", "Account", FormMethod.Post))
                             {
-                                <input id="Username" placeholder="Username" style="margin-bottom: 15px;" type="text" name="Username" size="30" />
-                                <input id="Password" placeholder="Password" style="margin-bottom: 15px;" type="password" name="Password" size="30" />
-                                <input id="RememberMe" style="float: left; margin-right: 10px;" type="checkbox" name="RememberMe" value="1" />
+                                <input id="UsernameNav" placeholder="Username" style="margin-bottom: 15px;" type="text" name="Username" size="30" />
+                                <input id="PasswordNav" placeholder="Password" style="margin-bottom: 15px;" type="password" name="Password" size="30" />
+                                <input id="RememberMeNav" style="float: left; margin-right: 10px;" type="checkbox" name="RememberMe" value="1" />
                                 <label class="string optional" for="user_remember_me"> Remember me</label>
 
                                 <input class="btn btn-primary" style="clear: left; width: 100%; height: 32px; font-size: 13px;" type="submit" name="commit" value="Sign In" />

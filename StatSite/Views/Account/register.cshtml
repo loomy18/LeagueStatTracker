@@ -9,16 +9,16 @@
     <fieldset id="registerForm">
         <div class="container app-container-signin">
 
-            @Html.TextBoxFor(m => m.Username, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Username" })
+            @Html.TextBoxFor(m => m.Username, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput username", @placeholder = "Username" })
             @Html.ValidationMessageFor(m => m.Username, null, new { @class = "ValidationMessage" })
-            <span id="statusSpan" />
 
             <div id="summoners">
                 @Html.EditorFor(m => m.Summoners)
-                @Html.AddLink("Add Summoner", "#summoners", ".summoner", "Summoners", typeof(LOLSA.Models.SummonerInfo))
             </div>
-
-            @Html.TextBoxFor(m => m.Email, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Email" })
+            <span id="AddSummoner">
+                @Html.AddLink("Add Summoner", "#summoners", ".summoner", "Summoners", typeof(LOLSA.Models.SummonerInfo))
+            </span>
+            @Html.TextBoxFor(m => m.Email, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Email"})
             @Html.ValidationMessageFor(m => m.Email, null, new { @class = "ValidationMessage" })
 
             @Html.PasswordFor(m => m.Password, new { data_bind = "value: Name:", @class = "form-control app-fill-lightgray app-border-darkgray fieldInput", @placeholder = "Password" })
@@ -30,45 +30,14 @@
             <button type="submit" id="LoginButton" class="btn btn-lg btn-primary btn-block">Register</button>
         </div>
     </fieldset>
+      
 }
 
 @section scripts {
     <script src="~/Scripts/Register.js"></script>
     <script src="~/Scripts/jquery.validate.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
-    <script>
-        $(document).ready(function () {
 
-            $('#registerForm').validate({
-                rules: {
 
-                },
-                highlight: function (element) {
-                    $(element).closest('.control-group').removeClass('success').addClass('error');
-                },
-                success: function (element) {
-                    element.text('OK!').addClass('valid')
-                        .closest('.control-group').removeClass('error').addClass('success');
-                }
-            });
-            $('#Username').blur(function () {
-                alert("test");
-                var url = "/Account/CheckUserName";
-                var name = $('#Username').val();
-                $.get(url, { input: name }, function (data) {
-                    if (data == "Available") {
-                        $("#statusSpan").html("<span style='color:green'>Available</span>");
-                        $("#UserName").css('background-color', '');
-                    }
-                    else {
-                        $("#statusSpan").html("<span style='color:red'>Not Available</span>");
-                        $("#Username").css('background-color', '#e97878');
-                    }
-                });
-            })
-        });
-    </script>
-    <script type="text/jscript">
-       
-    </script>
+    
 }
