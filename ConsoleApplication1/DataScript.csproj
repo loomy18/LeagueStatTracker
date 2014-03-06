@@ -76,6 +76,12 @@
       <DependentUpon>LolsaDataClasses.dbml</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LolApiDriver\LolApiDriver.csproj">
+      <Project>{9e51e5d2-cc88-41e6-8bcd-08f871b33e8c}</Project>
+      <Name>LolApiDriver</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

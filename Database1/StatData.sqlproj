@@ -61,12 +61,11 @@
   <ItemGroup>
     <Build Include="GameStatTable.sql" />
     <Build Include="GameTable.sql" />
-    <Build Include="insertGame.sql" />
+    <Build Include="InsertGame.sql" />
     <Build Include="UserTable.sql" />
     <Build Include="UserSummonerTable.sql" />
     <Build Include="InsertSummoner.sql" />
     <Build Include="SummonerTable.sql" />
-    <Build Include="getSummonerIds.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="Database1.refactorlog" />

@@ -17,10 +17,12 @@ namespace LOLSA.Models.CustomValidations
             if (summonerInfo.DeleteSummoner == true) return ValidationResult.Success;
             string serverName = LeagueApiDriver.Servers[summonerInfo.Server];
             string summonerName = summonerInfo.SummonerName;
-            LeagueApiDriver driver = new LeagueApiDriver(summonerName, serverName);
-            if (driver.user != null)
+            Summoner user = LeagueApiDriver.getLeagueUser(summonerName, serverName);
+            if (user != null)
             {
-                summonerInfo.SummonerId = driver.user.id;
+                summonerInfo.SummonerId = user.Id;
+                summonerInfo.RevisionDate = user.RevisionDate;
+                summonerInfo.ProfileIconId = user.ProfileIconId;
                 return ValidationResult.Success;
             }
             else return new ValidationResult("Invalid Summoner");

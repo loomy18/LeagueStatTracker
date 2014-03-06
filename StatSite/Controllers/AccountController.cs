@@ -102,28 +102,28 @@ namespace LOLSA.Controllers
 
         public void insertSummonerData(ICollection<SummonerInfo> summoners, string userId)
         {
-            string[] NameParameters = new string[] { "@Summoner1Name", "@Summoner2Name", "@Summoner3Name", "@Summoner4Name", "@Summoner5Name" };
-            string[] IdParameters = new string[] { "@Summoner1Id", "@Summoner2Id", "@Summoner3Id", "@Summoner4Id", "@Summoner5Id" };
-            string[] ServerParameters = new string[] { "@Summoner1Server", "@Summoner2Server", "@Summoner3Server", "@Summoner4Server", "@Summoner5Server" };
             string connectionString = ConfigurationManager.ConnectionStrings["LeagueStatServer"].ConnectionString;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand("InsertSummoner", conn);
-                command.CommandType = System.Data.CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Userid", userId);
-                int i = 0;
+                int i = 1;
+                conn.Open();
                 foreach (SummonerInfo summoner in summoners)
                 {
                     if (summoner.DeleteSummoner != true)
                     {
-                        command.Parameters.AddWithValue(NameParameters[i], summoner.SummonerName);
-                        command.Parameters.AddWithValue(IdParameters[i], summoner.SummonerId);
-                        command.Parameters.AddWithValue(ServerParameters[i], summoner.Server);
+                        SqlCommand command = new SqlCommand("InsertSummoner", conn);
+                        command.CommandType = System.Data.CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Userid", userId);
+                        command.Parameters.AddWithValue("@SummonerName", summoner.SummonerName);
+                        command.Parameters.AddWithValue("@SummonerId", summoner.SummonerId);
+                        command.Parameters.AddWithValue("@SummonerServer", summoner.Server);
+                        command.Parameters.AddWithValue("@SummonerNumber", i);
+                        command.Parameters.AddWithValue("@RevisionDate", summoner.RevisionDate);
+                        command.Parameters.AddWithValue("@ProfileIconId", summoner.ProfileIconId);
+                        command.ExecuteNonQuery();
                         i++;
                     }
                 }
-                conn.Open();
-                command.ExecuteNonQuery();
             }
         }
     }

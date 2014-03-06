@@ -1,7 +1,8 @@
-﻿CREATE TABLE [dbo].[GameHistory]
+﻿CREATE TABLE [dbo].[GameStatTable]
 (
-	[statsId] INT NOT NULL PRIMARY KEY, 
-    [level] INT NULL, 
+	[statsId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY, 
+    [champLevel] INT NULL, 
+	[summonerLevel] INT NULL,
     [goldEarned] INT NULL, 
     [numDeaths] INT NULL, 
     [minionsKilled] INT NULL, 
@@ -46,5 +47,11 @@
     [turretsKilled] INT NULL, 
     [largestCriticalStrike] INT NULL, 
     [magicDamageDealtToChampions] INT NULL, 
-    [visionWardsBought] INT NULL
+    [visionWardsBought] INT NULL, 
+    [gameId] INT NOT NULL FOREIGN KEY REFERENCES GameTable(gameId),
+    [championId] INT NULL, 
+    [spell1] INT NULL, 
+    [spell2] INT NULL, 
+    [teamId] INT NULL, 
+    [summonerId] INT NULL
 )

@@ -29,5 +29,7 @@ namespace LOLSA.Models
         //do we still need?
         public bool DeleteSummoner { get; set; }
         public int SummonerId { get; set; }
+        public long RevisionDate { get; set; }
+        public int ProfileIconId { get; set; }
     }
 }

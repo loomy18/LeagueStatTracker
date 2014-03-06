@@ -189,4 +189,39 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="Server" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="49abe1ce-3c2a-452b-97fe-8711846afa1a" ChangeDateTime="03/05/2014 20:31:59">
+    <Property Name="ElementName" Value="[dbo].[GameTable].[level]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="gameLevel" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="a5f58166-e6a4-4b4d-8814-266ff6cf20e4" ChangeDateTime="03/05/2014 20:32:02">
+    <Property Name="ElementName" Value="[dbo].[GameTable].[levelVal]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="summonerLevel" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="5ad5ae56-4952-4f35-b876-5d8a48a186c5" ChangeDateTime="03/05/2014 20:32:29">
+    <Property Name="ElementName" Value="[dbo].[GameTable].[gameLevel]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="champLevel" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="c6fa516e-bb42-49a0-a8cf-e254ed2adaad" ChangeDateTime="03/05/2014 20:41:29">
+    <Property Name="ElementName" Value="[dbo].[GameHistory].[level]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[GameHistory]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="champLevel" />
+  </Operation>
+  <Operation Name="Rename Refactor" Key="eb5ed0fc-793e-4c1a-8a4d-79f6dca6cdae" ChangeDateTime="03/06/2014 00:16:09">
+    <Property Name="ElementName" Value="[dbo].[SummonerTable].[SummonerId]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[dbo].[SummonerTable]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="Id" />
+  </Operation>
 </Operations>

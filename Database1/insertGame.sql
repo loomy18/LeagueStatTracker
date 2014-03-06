@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[insertGame]
+﻿CREATE PROCEDURE [dbo].[InsertGame]
 	@gameId int, 
     @invalid BIT = 0, 
     @gameMode VARCHAR(50) = null, 
@@ -9,7 +9,8 @@
     @championId INT = null, 
     @spell1 INT = null, 
     @spell2 INT = null, 
-    @levelVal INT = null, 
+    @champLevel INT = null,
+	@summonerLevel INT = null,  
     @createDate BIGINT = null,  
     @summonerId INT = null,
     @goldEarned INT = null, 
@@ -58,10 +59,14 @@
     @magicDamageDealtToChampions INT = null, 
     @visionWardsBought INT = null
 AS
-	IF NOT EXISTS (SELECT * FROM GameTable WHERE gameId = @gameId AND summonerId=@summonerId)
-	BEGIN
-		INSERT INTO GameTable(gameId, invalid, gameMode, gameType, subType, mapId, teamId, championId, spell1, spell2, levelVal, createDate, summonerId, goldEarned, numDeaths, minionsKilled, championsKilled, goldSpent, totalDamageDealt, totalDamageTaken, doubleKills, tripleKills, killingSprees, largestKillingSpree, team, win, neutralMinionsKilled, largestMultiKill, physicalDamageDealtPlayer, magicDamageDealtPlayer, physicalDamageTaken, magicDamageTaken, timePlayed, totalHeal, totalUnitsHealed, assists, item0, item1, item2, item3, item4, item5, item6, sightWardsBought, physicalDamageDealtToChampions, totalDamageDealtToChampions, trueDamageDealtPlayer, trueDamageDealtToChampions, trueDamageTaken, wardPlaced, neutralMinionsKilledEnemyJungle, neutralMinionsKilledYourJungle, totalTimeCrowdControlDealt, barracksKilled, turretsKilled, largestCriticalStrike, magicDamageDealtToChampions, visionWardsBought)
-		VALUES(@gameId, @invalid, @gameMode, @gameType, @subType, @mapId, @teamId, @championId, @spell1, @spell2, @levelVal, @createDate, @summonerId, @goldEarned, @numDeaths, @minionsKilled, @championsKilled, @goldSpent, @totalDamageDealt, @totalDamageTaken, @doubleKills, @tripleKills, @killingSprees, @largestKillingSpree, @team, @win, @neutralMinionsKilled, @largestMultiKill, @physicalDamageDealtPlayer, @magicDamageDealtPlayer, @physicalDamageTaken, @magicDamageTaken, @timePlayed, @totalHeal, @totalUnitsHealed, @assists, @item0, @item1, @item2, @item3, @item4, @item5, @item6, @sightWardsBought, @physicalDamageDealtToChampions, @totalDamageDealtToChampions, @trueDamageDealtPlayer, @trueDamageDealtToChampions, @trueDamageTaken, @wardPlaced, @neutralMinionsKilledEnemyJungle, @neutralMinionsKilledYourJungle, @totalTimeCrowdControlDealt, @barracksKilled, @turretsKilled, @largestCriticalStrike, @magicDamageDealtToChampions, @visionWardsBought)
-		RETURN 0
-	END
-RETURN 1
+	IF NOT EXISTS (SELECT 1 FROM GameTable WHERE (gameId = @gameId))
+		BEGIN
+			INSERT INTO GameTable (gameId, invalid, gameMode, gameType, subType, mapId, createDate)
+			VALUES(@gameId, @invalid, @gameMode, @gameType, @subType, @mapId, @createDate)
+		END
+	IF NOT EXISTS (SELECT 1 FROM GameStatTable WHERE (gameId = @gameId AND summonerId = @summonerId))
+		BEGIN
+			INSERT INTO GameStatTable(statsId, gameId, teamId, championId, spell1, spell2, summonerLevel, champLevel, summonerId, goldEarned, numDeaths, minionsKilled, championsKilled, goldSpent, totalDamageDealt, totalDamageTaken, doubleKills, tripleKills, killingSprees, largestKillingSpree, team, win, neutralMinionsKilled, largestMultiKill, physicalDamageDealtPlayer, magicDamageDealtPlayer, physicalDamageTaken, magicDamageTaken, timePlayed, totalHeal, totalUnitsHealed, assists, item0, item1, item2, item3, item4, item5, item6, sightWardsBought, physicalDamageDealtToChampions, totalDamageDealtToChampions, trueDamageDealtPlayer, trueDamageDealtToChampions, trueDamageTaken, wardPlaced, neutralMinionsKilledEnemyJungle, neutralMinionsKilledYourJungle, totalTimeCrowdControlDealt, barracksKilled, turretsKilled, largestCriticalStrike, magicDamageDealtToChampions, visionWardsBought)
+			VALUES(NEWID(), @gameId, @teamId, @championId, @spell1, @spell2, @summonerLevel, @champLevel, @summonerId, @goldEarned, @numDeaths, @minionsKilled, @championsKilled, @goldSpent, @totalDamageDealt, @totalDamageTaken, @doubleKills, @tripleKills, @killingSprees, @largestKillingSpree, @team, @win, @neutralMinionsKilled, @largestMultiKill, @physicalDamageDealtPlayer, @magicDamageDealtPlayer, @physicalDamageTaken, @magicDamageTaken, @timePlayed, @totalHeal, @totalUnitsHealed, @assists, @item0, @item1, @item2, @item3, @item4, @item5, @item6, @sightWardsBought, @physicalDamageDealtToChampions, @totalDamageDealtToChampions, @trueDamageDealtPlayer, @trueDamageDealtToChampions, @trueDamageTaken, @wardPlaced, @neutralMinionsKilledEnemyJungle, @neutralMinionsKilledYourJungle, @totalTimeCrowdControlDealt, @barracksKilled, @turretsKilled, @largestCriticalStrike, @magicDamageDealtToChampions, @visionWardsBought)
+		END
+RETURN 1 

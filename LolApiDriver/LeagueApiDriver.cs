@@ -8,36 +8,28 @@ using Newtonsoft.Json;
 
 namespace LolApiDriver
 {
-    public class LeagueApiDriver
+    public static class LeagueApiDriver
     {
-        RestClient client = new RestClient("https://prod.api.pvp.net");
-        string summonerName {get; set;}
-        string serverName {get; set;}
-        public LeagueUser user {get; set;}
+
         public static string[] Servers = new string[] { "na", "euw" };
-
-        public LeagueApiDriver(string summonerName, string serverName){
-            this.summonerName = Utility.StringUtil.ExceptBlanks(summonerName);
-            this.serverName = serverName;
-            this.user = getLeagueUser();
-        }
-
         
-        public string getRecentStatsString()
+        public static string getRecentsString(int summonerId, string serverName)
         {
-            RestRequest recentRequest = new RestRequest(createRecentString(user.id));
+            RestClient client = new RestClient("https://prod.api.pvp.net");
+            RestRequest recentRequest = new RestRequest(createRecentString(summonerId, serverName));
             RestResponse recentResponse = (RestResponse)client.Execute(recentRequest);
             return recentResponse.Content;
         }
-        public RecentResponse getRecentResponse()
+        public static RecentResponse getRecentsResponse(string recentsString)
         {
-            return JsonConvert.DeserializeObject<RecentResponse>(getRecentStatsString());
+            return JsonConvert.DeserializeObject<RecentResponse>(recentsString);
         }
        
 
-        public string getRankStatsString()
+        public static string getRankStatsString(int summonerId, string serverName)
         {
-            string rankStatRequestString = createStatString(user.id, "ranked");
+            RestClient client = new RestClient("https://prod.api.pvp.net");
+            string rankStatRequestString = createStatString(summonerId, serverName, "ranked");
             RestRequest rankStatRequest = new RestRequest(rankStatRequestString);
             RestResponse rankStatResponse = (RestResponse)client.Execute(rankStatRequest);
             return rankStatResponse.Content;
@@ -47,22 +39,19 @@ namespace LolApiDriver
          //   return JsonConvert.DeserializeObject<RankStatResponse>(getRankStatsString());
        // }
 
-        public RestResponse getUserResponse()
-        {
-            RestRequest request = new RestRequest(createUserRequestString());
-            return (RestResponse)client.Execute(request);
-        }
 
-        public string getLeagueUserString()
+        public static string getLeagueUserString(string summonerName, string serverName)
         {
-            return getUserResponse().Content;
+            RestClient client = new RestClient("https://prod.api.pvp.net");
+            RestRequest request = new RestRequest(createUserRequestString(summonerName, serverName));
+            return client.Execute(request).Content;
         }
-        public LeagueUser getLeagueUser()
+        public static Summoner getLeagueUser(string summonerName, string serverName)
         {
             try
             {
-                var userDictionary = JsonConvert.DeserializeObject<Dictionary<string, LeagueUser>>(getLeagueUserString());
-                return userDictionary[this.summonerName];
+                var userDictionary = JsonConvert.DeserializeObject<Dictionary<string, Summoner>>(getLeagueUserString(summonerName, serverName));
+                return userDictionary[summonerName];
             }
             catch(Exception e)
             {
@@ -71,7 +60,7 @@ namespace LolApiDriver
         }
 
 
-        public string createRecentString(long id)
+        public static string createRecentString(int id, string serverName)
         {
             string apiVersion = "v1.3";
             StringBuilder sb = new StringBuilder("/api/lol/");
@@ -84,7 +73,7 @@ namespace LolApiDriver
             return addKey(sb.ToString());
         }
 
-        public string createStatString(long id, string statType)
+        public static string createStatString(int id, string serverName, string statType)
         {
             string apiVersion = "v1.2";
             StringBuilder sb = new StringBuilder("/api/lol/");
@@ -98,7 +87,7 @@ namespace LolApiDriver
             return addKey(sb.ToString());
         }
 
-        public string createUserRequestString()
+        public static string createUserRequestString(string summonerName, string serverName)
         {
             string apiVersion = "v1.3";
             StringBuilder sb = new StringBuilder("/api/lol/");
@@ -110,7 +99,7 @@ namespace LolApiDriver
             return addKey(sb.ToString());
         }
 
-        public string addKey(string request)
+        public static string addKey(string request)
         {
             StringBuilder sb = new StringBuilder(request);
             sb.Append("?api_key=61cabbd3-6250-4a01-a25e-efafe06e5ba8");

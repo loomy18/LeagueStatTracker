@@ -12,12 +12,10 @@ namespace LolApiDriver
 {
     public class LolDataDriver
     {
-        public static void insertData(string summonerName, string serverName)
+        public static void insertRecentData(int summonerId, string serverName)
         {
             string connectionString = @"Data Source=BRIAN-PC\SQLEXPRESS;Initial Catalog=StatData;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False";
-            LeagueApiDriver driver = new LeagueApiDriver(summonerName, serverName);
-            RecentResponse recents = driver.getRecentResponse();
-            // RankStatResponse rankStats = driver.getRankStatResponse();
+            RecentResponse recents = LeagueApiDriver.getRecentsResponse(LeagueApiDriver.getRecentsString(summonerId, serverName));
             foreach (Game game in recents.games)
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -25,7 +23,7 @@ namespace LolApiDriver
                     SqlCommand command = new SqlCommand("insertGame", conn);
                     command.CommandType = System.Data.CommandType.StoredProcedure;
                     command.Parameters.AddWithValue("@gameId", game.gameId);
-                    command.Parameters.AddWithValue("@summonerId", driver.user.id);
+                    command.Parameters.AddWithValue("@summonerId", summonerId);
                     command.Parameters.AddWithValue("@gameMode", game.gameMode);
                     command.Parameters.AddWithValue("@gameType", game.gameType);
                     command.Parameters.AddWithValue("@subType", game.subType);
@@ -34,8 +32,9 @@ namespace LolApiDriver
                     command.Parameters.AddWithValue("@championId", game.championId);
                     command.Parameters.AddWithValue("@spell1", game.spell1);
                     command.Parameters.AddWithValue("@spell2", game.spell2);
-                    command.Parameters.AddWithValue("@levelVal", game.level);
+                    command.Parameters.AddWithValue("@summonerLevel", game.level);
                     command.Parameters.AddWithValue("@createDate", game.createDate);
+                    command.Parameters.AddWithValue("@champLevel", game.stats.level);
                     command.Parameters.AddWithValue("@goldEarned", game.stats.goldEarned);
                     command.Parameters.AddWithValue("@numDeaths", game.stats.numDeaths);
                     command.Parameters.AddWithValue("@minionsKilled", game.stats.minionsKilled);

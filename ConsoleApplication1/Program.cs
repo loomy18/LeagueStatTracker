@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 using System.Configuration;
 using System.Data.Linq;
 using DataScript.Tables;
-
+using LolApiDriver;
 namespace DataScript
 {
     class Program
@@ -19,10 +19,10 @@ namespace DataScript
         }
         public static void getSummonerIds()
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["LeagueStatServer"].ConnectionString;
-            LolsaDataClassesDataContext dc = new LolsaDataClassesDataContext(connectionString);
-            var summonerIds = dc.getSummonerIds();
 
+            Summoner user = LeagueApiDriver.getLeagueUser("loomi", "na");
+            LolsaDataClassesDataContext dc = new LolsaDataClassesDataContext(ConfigurationManager.ConnectionStrings["LeagueStatServer"].ConnectionString);
+            Table<Summoner> Summoners = dc.GetTable<Summoner>();
         }
     }
 }
